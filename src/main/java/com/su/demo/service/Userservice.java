@@ -16,7 +16,7 @@ public class Userservice implements UserServiceImpl {
     public String insert(User user) {
     int result=   userMapper.insert(user);
         if(result>=1){
-            
+            System.out.println(122);
             System.out.println(11);
             return "保存成功";
         }else{
