@@ -1,5 +1,8 @@
 package com.su.demo.controller;
 
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import com.su.demo.model.User;
 import com.su.demo.service.impl.UserServiceImpl;
 import org.apache.ibatis.annotations.Param;
@@ -17,6 +20,18 @@ public class UserController {
     @RequestMapping("/insertUser")
     public String insertUser(User user){
 //        User user=new User(name,password,sex);
+
+
      return userService.insert(user);
     }
+    @RequestMapping("/insertJson")
+    public String insertJson(String name,String password,String sex) throws JSONException {
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put("name",name);
+        jsonObject.put("password",password);
+        jsonObject.put("sex",sex);
+        return userService.insertJson(jsonObject);
+    }
+
+
 }

@@ -57,6 +57,11 @@
       </if>
     </trim>
   </insert>
+
+  <insert id="insertJson" parameterType="org.json.JSONObject" >
+    INSERT INTO (name,password,sex) VALUES (#{JSONObject.name},#{JSONObject.password},#{JSONObject.sex})
+  </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.su.demo.model.User" >
     update user
     <set >
